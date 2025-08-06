@@ -24,23 +24,20 @@ jobs:
           lfs: false
 
       - name: Install uv
-        run: |
-          curl -Ls https://astral.sh/uv/install.sh | sh
-          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
 
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version-file: .python-version
 
-      - name: Create virtual environment with uv
-        run: uv venv .venv
-
-      - name: Install dependencies from pyproject.toml
-        run: .venv/bin/uv pip install -r pyproject.toml
+      - name: Install dependencies
+        run: uv sync --all-groups
 
       - name: Build MkDocs site
-        run: .venv/bin/mkdocs build
+        run: uv run mkdocs build
 
       - name: Install OIDC Client from Core Package
         run: npm install @actions/core@1.6.0 @actions/http-client
@@ -49,29 +46,13 @@ jobs:
         uses: actions/github-script@v6
         id: idtoken
         with:
-           script: |
-               const coredemo = require('@actions/core')
-               return await coredemo.getIDToken()
-           result-encoding: string
+          script: |
+              const coredemo = require('@actions/core')
+              return await coredemo.getIDToken()
+          result-encoding: string
 
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_GREEN_GLACIER_0B2B11003 }}
-          action: "upload"
-          app_location: "."         # where mkdocs.yml is
-          api_location: ""          # no backend
-          output_location: "site"   # mkdocs build output
-          github_id_token: ${{ steps.idtoken.outputs.result }}
-
-  close_pull_request_job:
-    if: github.event_name == 'pull_request' && github.event.action == 'closed'
-    runs-on: ubuntu-latest
-    name: Close Pull Request Job
-    steps:
-      - name: Close Pull Request
-        id: closepullrequest
-        uses: Azure/static-web-apps-deploy@v1
-        with:
-          action: "close"
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_AP
