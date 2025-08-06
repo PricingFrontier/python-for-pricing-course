@@ -23,26 +23,24 @@ jobs:
           submodules: true
           lfs: false
 
-      # ✅ Install uv (fast Python package manager)
       - name: Install uv
         run: |
           curl -Ls https://astral.sh/uv/install.sh | sh
           echo "$HOME/.cargo/bin" >> $GITHUB_PATH
 
-      # ✅ Setup Python (required for mkdocs to run)
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
 
-      # ✅ Install mkdocs and theme
-      - name: Install dependencies with uv
-        run: |
-          uv pip install mkdocs mkdocs-material
+      - name: Create virtual environment with uv
+        run: uv venv .venv
 
-      # ✅ Build site using mkdocs
+      - name: Install dependencies from pyproject.toml
+        run: .venv/bin/uv pip install -r pyproject.toml
+
       - name: Build MkDocs site
-        run: mkdocs build
+        run: .venv/bin/mkdocs build
 
       - name: Install OIDC Client from Core Package
         run: npm install @actions/core@1.6.0 @actions/http-client
@@ -53,4 +51,27 @@ jobs:
         with:
            script: |
                const coredemo = require('@actions/core')
-               return awai
+               return await coredemo.getIDToken()
+           result-encoding: string
+
+      - name: Build And Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_GREEN_GLACIER_0B2B11003 }}
+          action: "upload"
+          app_location: "."         # where mkdocs.yml is
+          api_location: ""          # no backend
+          output_location: "site"   # mkdocs build output
+          github_id_token: ${{ steps.idtoken.outputs.result }}
+
+  close_pull_request_job:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    name: Close Pull Request Job
+    steps:
+      - name: Close Pull Request
+        id: closepullrequest
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          action: "close"
