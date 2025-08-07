@@ -1,4 +1,56 @@
-site_name: MkLorum
-nav:
-  - Home: index.md
-  - About: about.md
+# https://www.mkdocs.org/user-guide/configuration/#configuration
+
+# Project information
+site_author: Pricing Frontier
+site_name: Python for Pricing Course
+site_url: https://python-for-pricing.co.uk/
+site_description: Learn why and how to adopt python in your pricing team.
+
+# Repository
+repo_name: PricingFrontier/python-for-pricing-course
+repo_url: https://github.com/PricingFrontier/python-for-pricing-course
+
+# Copyright
+copyright: Copyright &copy; Pricing Frontier
+
+# Configs
+strict: true
+use_directory_urls: false
+
+# Theme
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/logo.png
+  palette:
+    scheme: default
+    primary: black
+
+  features:
+    - content.code.copy
+    - navigation.footer
+    - navigation.indexes
+    - navigation.tabs
+
+# Extra
+extra:
+  social:
+    - icon: fontawesome/solid/globe
+      link: https://pricing-frontier.co.uk
+    - icon: fontawesome/brands/github
+      link: https://github.com/PricingFrontier/python-for-pricing-course
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/ralph-clayton/
+  analytics:
+    provider: google
+    property: G-MWT9Z8Y8PW
+
+# Extensions
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format

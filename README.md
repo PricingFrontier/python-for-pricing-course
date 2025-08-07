@@ -1,2 +1,3 @@
-# python-for-pricing-course
-Learn how to utilise python in your pricing workflows
+# Python for Pricing course
+
+**Welcome to the [Python for Pricing course](https://python-for-pricing.co.uk/)!**
