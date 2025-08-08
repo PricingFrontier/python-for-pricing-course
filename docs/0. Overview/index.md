@@ -1,7 +1,7 @@
 # 0. Overview
 
 - **[0.0. Course](./0.0. Course.md)**: 
-- **[0.1. ProjectsWhy use python](./0.1. Why use python.md)**: 
+- **[0.1. Why use python](./0.1. Why use python.md)**: 
 - **[0.2. Reproducible Analytics](./0.2. Reproducible Analytics.md)**: 
 - **[0.3. Innovation](./0.3. Innovation.md)**: 
 - **[0.4. Pricing as a system](./0.4. Pricing as a system.md)**: 
