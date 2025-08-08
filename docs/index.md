@@ -10,7 +10,11 @@ Welcome to our comprehensive [Python for Pricing Course](https://python-for-pric
 
 Whether you're leading a pricing team, new to coding, or looking to modernise your workflow, this course shows you how Python can transform the way you work; from one-off analyses in Excel to reproducible, scalable, and automated systems.
 
-You'll learn why Python is the right choice for pricing, how to get set up with the right tools, and how to apply engineering best practices - including version control, modular code, and automation.
+You'll learn why Python is the right choice for pricing, how to get set up with the right tools, and how to apply engineering best practices - including version control, modular code, and automation, to improve the quality of analysis.
+
+**Authored by**: [linkedin.com/in/ralph-clayton/](https://www.linkedin.com/in/ralph-clayton/){target="_blank"}
+
+**Pricing Frontier LTD**: [pricing-frontier.co.uk](https://pricing-frontier.co.uk){target="_blank"}
 
 ## [Chapter 0: Overview](./0. Overview/)
 
@@ -18,15 +22,15 @@ Understand why Python is a powerful tool for pricing teams. This chapter introdu
 
 ## [Chapter 1: Principles](./1. Principles/)
 
-Explore the key principles that underpin modern pricing workflows in Python. Topics include transparency, automation, modularity, and collaboration - all essential for building robust, auditable, and scalable analytical processes.
+Explore the key principles that underpin modern pricing workflows in Python. Topics include transparency, automation, modularity, and collaboration - all essential for building robust, auditable, and most importantly reproducible analytical processes.
 
 ## [Chapter 2: Setting up](./2. Setting up/)
 
-Get hands-on with your development environment. This section walks you through installing Python, using Visual Studio Code, managing virtual environments, and version-controlling your work with Git - all tailored for pricing analysts.
+Get hands-on with your development environment. This section walks you through installing Python, using Visual Studio Code, managing virtual environments, and version-controlling your work with Git.
 
 ## [Chapter 3: Data Manipulation](./3. Data Manipulation/)
 
-Learn the core Python syntax and tools needed to work with data effectively. You’ll cover notebooks, data types, loops, libraries, and how to manipulate dataframes - the foundation for any pricing model or analysis.
+Learn the core Python syntax and tools needed to work with data effectively. You’ll cover notebooks, python syntax, libraries, and how to manipulate dataframes - the foundation for any pricing model or analysis.
 
 ## [Chapter 4: Visualisation](./4. Visualisation/)
 
@@ -42,4 +46,5 @@ Take your work from notebooks to production. This section covers key engineering
 
 ## Let's journey together!
 
-You're not learning in isolation - you're joining a community of pricing professionals modernising their skillsets. Whether you're just starting out or leading change in your team, this course is here to support your next step.
+You're not learning in isolation - you're joining community of pricing analysts modernising their skillsets. Whether you're just starting out or leading change in your team, this course is here to support your next step.
+
