@@ -5,7 +5,7 @@ Great pricing analysis isn’t just about numbers-it’s about how the work is d
 - **[1.0. Transparency](./1.0. Transparency.md)**:  
   Build trust in your models and analyses. Learn how Python enables complete visibility into every step of your pricing logic, making decisions easy to explain and defend.
 
-- **[1.1. Reproducibility](./1.1. Reproducibility.md)**:  
+- **[1.1. System design](./1.1. System design.md)**:  
   Never wonder how a result was produced. We’ll explore how to design workflows that can be rerun at any time-guaranteeing consistency and auditability.
 
 - **[1.2. Automation](./1.2. Automation.md)**:  
