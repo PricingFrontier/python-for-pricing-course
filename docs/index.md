@@ -1,4 +1,4 @@
-# Python for Pricing Course
+# Python for Pricing
 
 <center>
     <img src="./assets/banner.png" alt="Python for Pricing Course Banner" style="height: 300px" />
