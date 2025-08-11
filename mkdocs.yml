@@ -2,7 +2,7 @@
 
 # Project information
 site_author: Pricing Frontier
-site_name: Python for Pricing Course
+site_name: Pricing Frontier LTD
 site_url: https://python-for-pricing.co.uk/
 site_description: Learn why and how to adopt python in your pricing team.
 
@@ -27,6 +27,8 @@ theme:
     primary: black
 
   features:
+    - content.tabs.link
+    - content.tabs
     - content.code.copy
     - navigation.footer
     - navigation.indexes
@@ -54,3 +56,6 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+
