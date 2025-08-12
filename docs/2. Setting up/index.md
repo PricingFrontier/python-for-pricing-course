@@ -14,7 +14,7 @@ Before diving into coding, it’s essential to have the right tools and environm
 - **[2.3. uv](./2.3. uv.md)**:  
   Learn to isolate project dependencies to avoid conflicts and ensure reproducibility.
 
-- **[2.4. Git](./2.4. Git.md)**:  
+- **[2.4. Git and Github](./2.4. Git and Github.md)**:  
   Use Git to manage your code versions, collaborate with teammates, and maintain a history of your work.
 
 - **[2.5. Initialising projects](./2.5. Initialising projects.md)**:  
