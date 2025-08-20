@@ -12,9 +12,21 @@ Whether you're leading a pricing team, new to coding, or looking to modernise yo
 
 You'll learn why Python is the right choice for pricing, how to get set up with the right tools, and how to apply engineering best practices - including version control, modular code, and automation, to improve the quality of analysis.
 
-**Authored by**: [linkedin.com/in/ralph-clayton/](https://www.linkedin.com/in/ralph-clayton/){target="_blank"}
+## Author
 
-**Pricing Frontier LTD**: [pricing-frontier.co.uk](https://pricing-frontier.co.uk){target="_blank"}
+<p>
+  <img src="./assets/my_face.png" alt="My face" style="height:250px; float:left; margin-right:15px;" />
+</p>
+
+My name is Ralph and I've been using Python for the majority of my career in Pricing.
+
+To me it's not just a different tool, it's a different approach to analysis, and provides a variety of ways to step up the efficiency and quality of your pricing work.
+
+I've written this course to share my experience of building end-to-end pricing systems with the wider industry, and to encourage analysts to explore the world of modern analytics.
+
+**Connect with me on LinkedIn**: [linkedin.com/in/ralph-clayton/](https://www.linkedin.com/in/ralph-clayton/){target="_blank"} 
+
+**Website**: [pricing-frontier.co.uk](https://pricing-frontier.co.uk){target="_blank"}
 
 ## [Chapter 0: Overview](./0. Overview/index.md)
 
@@ -44,7 +56,7 @@ Dive into predictive modelling for pricing. Learn how to build, validate, and de
 
 Take your work from notebooks to production. This section covers key engineering concepts like Docker, CI/CD, cloud deployment, and working with platforms like Databricks - enabling your models and analytics to scale.
 
-## Let's journey together!
+## Join 
 
 You're not learning in isolation - you're joining community of pricing analysts modernising their skillsets. Whether you're just starting out or leading change in your team, this course is here to support your next step.
 
