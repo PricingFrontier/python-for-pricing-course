@@ -1,0 +1,32 @@
+{
+    "VehPower": {
+        "min":0,
+        "max":10,
+        "step":1
+    },
+    "VehAge": {
+        "min":0,
+        "max":20,
+        "step":1
+    }, 
+    "DrivAge": {
+        "min":20,
+        "max":80,
+        "step":5
+    }, 
+    "BonusMalus": {
+        "min":50,
+        "max":100,
+        "step":10
+    },
+    "Density": {
+        "min":0,
+        "max":1000,
+        "step":100
+    },
+    "gbm_glm_ratio": {
+        "min":0.7,
+        "max":1.3,
+        "step":0.05
+    }
+}
