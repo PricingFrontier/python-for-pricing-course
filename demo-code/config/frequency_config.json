@@ -1,0 +1,41 @@
+{
+    "target": "ClaimCount",
+    "exposure": "Exposure",
+    "features": [
+        "VehPower",
+        "VehAge",
+        "DrivAge",
+        "BonusMalus",
+        "VehBrand",
+        "VehGas",
+        "Area",
+        "Density",
+        "Region"
+    ],
+    "split": {
+        "field": "Group",
+        "assignment": {
+            "1": "Train",
+            "2": "Train",
+            "3": "Train",
+            "4": "Test",
+            "5": "Holdout"
+        }
+    },
+    "gbm_params": {
+        "learning_params": {
+            "objective": "poisson",
+            "learning_rate": 0.01,
+            "max_depth": 3,
+            "verbosity": -1
+        },
+        "num_rounds": 10000,
+        "early_stopping_rounds": 10
+    },
+    "glm_params": {
+        "family": "poisson",
+        "link": "log",
+        "lambda": 0,
+        "seed": 123
+    }
+}
