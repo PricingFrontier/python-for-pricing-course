@@ -13,6 +13,3 @@ Lay the essential groundwork for pricing analytics by mastering Python’s core 
 
 - **[3.3. Dataframes](./3.3. Dataframes.md)**:  
   Master Pandas and Polars DataFrames to efficiently store, manipulate, and query large tabular datasets.
-
-- **[3.4. Abstraction](./3.4. Abstraction.md)**:  
-  Discover how to wrap repetitive code into reusable, flexible functions and classes, improving both efficiency and code quality.
