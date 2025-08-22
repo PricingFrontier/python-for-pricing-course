@@ -58,13 +58,11 @@ def agg_glm_vs_gbm(data, factor, continous_features, continous_factor_visuals, t
 
     return visual_data
 
-
 def plot_glm_vs_gbm(visual_data: pl.DataFrame, factor: str, target: str, exposure: str = None) -> go.Figure:
     if exposure is None:
         exposure = 'count'
 
     fig = go.Figure()
-
 
     # Bar: Exposure
     fig.add_trace(go.Bar(
