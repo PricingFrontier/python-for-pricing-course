@@ -11,8 +11,8 @@ Prototypes are great, but production-ready solutions are where the real value li
 - **[6.2. Infrastructure as Code](./6.2. Infrastructure as Code.md)**:  
   Automate the setup and management of your infrastructure using code for consistency and repeatability.
 
-- **[6.3. Docker](./6.3. Docker.md)**:  
-  Use containerization to package your pricing applications and dependencies for easy deployment.
+- **[6.3. Containers](./6.3. Containers.md)**:  
+  Use containerisation to package your pricing applications and dependencies for easy deployment.
 
 - **[6.4. CI/CD](./6.4. CICD.md)**:  
   Implement Continuous Integration and Continuous Delivery pipelines to automate testing and deployment.
