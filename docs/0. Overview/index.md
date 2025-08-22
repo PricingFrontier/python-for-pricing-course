@@ -22,6 +22,3 @@ Python is transforming the way pricing teams work. In this chapter, we’ll expl
 
 - **[0.6. Python vs Excel](./0.6. Python vs Excel.md)**:  
   Excel is familiar and powerful, but it has limits. Here, we compare Python’s capabilities with Excel’s, highlighting when and why Python delivers greater efficiency, accuracy, and scalability.
-
-- **[0.7. Use Cases](./0.7. Use cases.md)**:  
-  See Python in action across real-world pricing problems-from data cleaning to predictive modelling. We’ll explore practical scenarios where Python delivers measurable business value.
