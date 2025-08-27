@@ -7,14 +7,18 @@ requires-python = ">=3.12"
 dependencies = [
     "catboost>=1.2.8",
     "great-tables>=0.18.0",
+    "imgkit>=1.2.3",
     "ipywidgets>=8.1.7",
+    "kaleido>=1.0.0",
     "mkdocs>=1.6.1",
     "mkdocs-material>=9.6.16",
     "nbconvert>=7.16.6",
     "plotly>=6.2.0",
     "polars>=1.32.2",
     "pyarrow>=21.0.0",
+    "reportlab>=4.4.3",
     "setuptools>=80.9.0",
     "shap>=0.48.0",
+    "wkhtmltopdf>=0.2",
     "ydata-profiling>=4.16.1",
 ]
