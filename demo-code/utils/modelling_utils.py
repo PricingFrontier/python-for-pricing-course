@@ -1,5 +1,6 @@
 import polars as pl
-from typing import Optional, Dict, Any, List, Union, Tuple
+import pandas as pd
+from typing import  Dict, List, Tuple
 
 def assign_split(data, split):
     """Assigns a split to the data based on the provided split dictionary."""
@@ -53,7 +54,7 @@ def continous_to_float(data: pl.DataFrame, columns: List[str]) -> pl.DataFrame:
     return data
 
 
-def create_modelling_data(data, features, group_field, group, target, exposure = None) -> Tuple[pl.DataFrame, pl.DataFrame, pl.DataFrame]:
+def create_modelling_data(data, features, group_field, group, target, exposure = None) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """
     Create modelling data by filtering the DataFrame based on the 'Group' column."
     """
@@ -65,6 +66,7 @@ def create_modelling_data(data, features, group_field, group, target, exposure =
     train_X = (
         filtered_data
         .select(features)
+        .to_pandas()
     )
 
     train_y = (
@@ -77,7 +79,8 @@ def create_modelling_data(data, features, group_field, group, target, exposure =
     if exposure is not None:
         train_exposure = (
             filtered_data
-            .select(exposure)
+            .with_columns(log_exposure=pl.col(exposure).log())
+            .select('log_exposure')
             .to_numpy()
             .ravel()
         )
