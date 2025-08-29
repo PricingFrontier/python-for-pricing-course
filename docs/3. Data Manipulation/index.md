@@ -1,4 +1,4 @@
-# 3. Data Manipulation
+# 3.0. Data Manipulation
 
 Lay the essential groundwork for pricing analytics by mastering Python’s core data concepts and tools. This chapter introduces fundamental syntax, interactive notebooks, key libraries, powerful dataframes, and abstraction techniques to streamline your coding workflow.
 

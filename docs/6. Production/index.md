@@ -1,4 +1,4 @@
-# 6. Production
+# 6.0. Production
 
 Prototypes are great, but production-ready solutions are where the real value lies. In this chapter, you’ll discover how to package and deploy your work using cloud platforms, Docker, CI/CD pipelines, and collaborative tools like Databricks. You’ll see how to move from one-off scripts to reliable, scalable, and maintainable systems.
 

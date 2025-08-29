@@ -1,4 +1,4 @@
-# 1. Principles
+# 1.0. Principles
 
 Great pricing analysis isn’t just about numbers-it’s about how the work is done. This chapter covers the key principles that make Python projects effective in real-world pricing teams: transparency, automation, modularity, and collaboration between technical and non-technical colleagues. By embedding these principles, you can improve the efficiency, auditability, and impact of your work.
 
