@@ -1,4 +1,4 @@
-# 0. Overview
+# 0.0. Overview
 
 Python is transforming the way pricing teams work. In this chapter, we’ll explore why it’s worth adopting, how it compares to traditional tools like Excel, and the role it can play in creating faster, more transparent, and more innovative pricing workflows. You’ll see how it fits into the bigger picture of pricing as a system, engineering practices, and long-term capability building.
 

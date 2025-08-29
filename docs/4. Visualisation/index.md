@@ -1,4 +1,4 @@
-# 4. Visualisation
+# 4.0. Visualisation
 
 Effectively communicate your pricing insights by mastering data presentation techniques. This chapter covers how to create clear tables, insightful charts, interactive dashboards, and polished PDF reports to share your analysis with impact.
  
