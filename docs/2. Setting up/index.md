@@ -1,17 +1,3 @@
 # 2.0. Setting Up
 
-Before diving into coding, it’s essential to have the right tools and environments configured. This chapter guides you through preparing both personal and work machines, installing Python and WSL, setting up Visual Studio Code, managing virtual environments, and mastering Git for version control. By the end, you’ll have a professional-grade development setup ready for robust and collaborative pricing analytics.
-
-Prepare your devices for professional pricing analytics with best practice setups and configurations.
-
-Enable a powerful Linux environment on Windows using Windows Subsystem for Linux for greater flexibility.
-
-Configure VS Code with recommended extensions and settings for an efficient Python coding experience.
-
-Learn to isolate project dependencies to avoid conflicts and ensure reproducibility.
-
-Use Git to manage your code versions, collaborate with teammates, and maintain a history of your work.
-
-Initialise a project with your newly installed environment
-
-Learn how to use Jupyter Notebooks for interactive, iterative analysis that combines code, visuals, and explanations.
+Before writing any code, it’s important to set up the right tools. This chapter walks through preparing your personal and work machines, installing Python, configuring Visual Studio Code, and enabling a Linux environment with WSL for flexibility. You’ll also learn how to manage virtual environments for reproducibility, use Git for version control and collaboration, and work with Jupyter Notebooks for interactive analysis. By the end, you’ll have a professional-grade setup ready for robust pricing analytics.

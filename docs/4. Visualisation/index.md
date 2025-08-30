@@ -1,11 +1,11 @@
 # 4.0. Visualisation
 
-Effectively communicate your pricing insights by mastering data presentation techniques. This chapter covers how to create clear tables, insightful charts, interactive dashboards, and polished PDF reports to share your analysis with impact.
- 
-Present data in well-structured, readable tables that make your analysis clear and easy to interpret.
+Effectively communicate pricing insights by mastering data presentation. This chapter covers how to create clear tables, insightful charts, interactive dashboards, and polished PDF reports to share your analysis with impact.
 
-Leverage Python’s charting libraries to create visuals that highlight trends, patterns, and outliers in your data.
+Present data in structured, readable tables that make analysis easy to interpret.
 
-Build interactive dashboards to track pricing metrics and share insights dynamically with your team.
+Use Python’s charting libraries to build visuals that highlight trends, patterns, and outliers.
 
-Automate the generation of professional PDF reports that combine tables, charts, and commentary into a cohesive package.
+Create interactive dashboards to track metrics and share insights dynamically with your team.
+
+Automate professional PDF reports that combine tables, charts, and commentary into a cohesive package.
