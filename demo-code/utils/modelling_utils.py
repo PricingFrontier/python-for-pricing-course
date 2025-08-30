@@ -54,7 +54,7 @@ def continous_to_float(data: pl.DataFrame, columns: List[str]) -> pl.DataFrame:
     return data
 
 
-def create_modelling_data(data, features, group_field, group, target, exposure = None) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+def create_modelling_data(data, features, group_field, group, target, exposure = None):
     """
     Create modelling data by filtering the DataFrame based on the 'Group' column."
     """

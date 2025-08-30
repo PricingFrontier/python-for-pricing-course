@@ -1,0 +1,10 @@
+artifact_location: mlflow-artifacts:/824937860116421933/models/m-d924a0798f1749af938c879e6085bf34/artifacts
+creation_timestamp: 1756572756139
+experiment_id: '824937860116421933'
+last_updated_timestamp: 1756572770605
+model_id: m-d924a0798f1749af938c879e6085bf34
+model_type: ''
+name: catboost_frequency_model
+source_run_id: a71f3b4ec1e84d2daf3088c4cd6bb2bf
+status: 2
+status_message: null

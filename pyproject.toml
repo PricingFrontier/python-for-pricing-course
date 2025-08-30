@@ -14,6 +14,7 @@ dependencies = [
     "kaleido>=1.0.0",
     "mkdocs>=1.6.1",
     "mkdocs-material>=9.6.16",
+    "mlflow>=3.3.2",
     "nbconvert>=7.16.6",
     "plotly>=6.2.0",
     "polars>=1.32.2",

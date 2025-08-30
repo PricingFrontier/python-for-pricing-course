@@ -1,0 +1,39 @@
+artifact_path: mlflow-artifacts:/824937860116421933/models/m-d924a0798f1749af938c879e6085bf34/artifacts
+flavors:
+  catboost:
+    catboost_version: 1.2.8
+    code: null
+    data: model.cb
+    model_type: CatBoostRegressor
+    save_format: cbm
+  python_function:
+    data: model.cb
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.catboost
+    python_version: 3.12.11
+is_signature_from_type_hint: false
+mlflow_version: 3.3.2
+model_id: m-d924a0798f1749af938c879e6085bf34
+model_size_bytes: 32358082
+model_uuid: m-d924a0798f1749af938c879e6085bf34
+prompts: null
+run_id: a71f3b4ec1e84d2daf3088c4cd6bb2bf
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  serving_input_path: serving_input_example.json
+  type: dataframe
+signature:
+  inputs: '[{"type": "double", "name": "VehPower", "required": true}, {"type": "double",
+    "name": "VehAge", "required": true}, {"type": "double", "name": "DrivAge", "required":
+    true}, {"type": "double", "name": "BonusMalus", "required": true}, {"type": "string",
+    "name": "VehBrand", "required": true}, {"type": "string", "name": "VehGas", "required":
+    true}, {"type": "string", "name": "Area", "required": true}, {"type": "double",
+    "name": "Density", "required": true}, {"type": "string", "name": "Region", "required":
+    true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2025-08-30 16:52:36.363348'

@@ -24,18 +24,15 @@
     },
     "gbm_params": {
         "learning_params": {
-            "objective": "poisson",
-            "learning_rate": 0.01,
-            "max_depth": 3,
-            "verbosity": -1
+            "loss_function": "Poisson",
+            "learning_rate": 0.1,
+            "depth": 3,
+            "l2_leaf_reg": 2,
+            "random_strength": 2,
+            "bagging_temperature": 1,
+            "verbose": 0
         },
         "num_rounds": 10000,
         "early_stopping_rounds": 10
-    },
-    "glm_params": {
-        "family": "poisson",
-        "link": "log",
-        "lambda": 0,
-        "seed": 123
     }
 }
