@@ -4,69 +4,144 @@ from datetime import datetime
 import plotly.graph_objects as go
 import plotly.io as pio
 from plotly.subplots import make_subplots
+import numpy as np
+from great_tables import GT, md, html
 
-def agg_glm_vs_gbm(data, factor, continous_features, continous_factor_visuals, target, exposure = None) -> pl.DataFrame:
+def band_continous(
+        df, 
+        feature, 
+        lower_bound, 
+        upper_bound, 
+        step_size
+    ):
     """
-    Create visual data by filtering the DataFrame based on the 'Group' column."
+    Band the continuous feature into discrete intervals.
+
+    Args:
+        df (pl.DataFrame): The input DataFrame.
+        feature (str): The name of the continuous feature to be banded.
+        lower_bound (float): The lower bound of the feature.
+        upper_bound (float): The upper bound of the feature.
+        step_size (float): The size of each band.
+
+    Returns:
+        pl.DataFrame: The DataFrame with the banded feature.
     """
-    visual_data = data
-
-    if exposure is None:
-        exposure = 'count'
-        visual_data = (
-            visual_data
-            .with_columns(pl.lit(1).alias(exposure))
-        )
-
-    continous_factor_values = continous_factor_visuals.get(factor)
-
-    if continous_factor_values is not None:
-
-        minimum_value = continous_factor_values.get('min')
-        maximum_value = continous_factor_values.get('max')
-        steps = continous_factor_values.get('step')
-
-        visual_data = (
-            visual_data
-            .with_columns(
-                pl.col(factor).clip(lower_bound = minimum_value, upper_bound = maximum_value).alias(factor)
-            )
-        )
-
-        visual_data = (
-            visual_data
-            .with_columns(
-                ((pl.col(factor)/steps).round()*steps).alias(factor)
-            )
-        )
-
-    visual_data = (
-        visual_data
-        .group_by(factor)
-        .agg([
-            pl.sum(target).alias(target),
-            pl.sum(exposure).alias(exposure),
-            pl.sum('gbm_predictions').alias('gbm_predictions'),
-            pl.sum('glm_predictions').alias('glm_predictions')
-        ])
+    banded_data = (
+        df
         .with_columns(
-            (pl.col(target) / pl.col(exposure)).alias(target),
-            (pl.col('gbm_predictions') / pl.col(exposure)).alias('gbm_predictions'),
-            (pl.col('glm_predictions') / pl.col(exposure)).alias('glm_predictions')
+            pl.col(feature).clip(lower_bound = lower_bound, upper_bound = upper_bound).alias(feature)
         )
-    ).sort(factor)
+        .with_columns(
+            ((pl.col(feature)/step_size).floor()*step_size).alias(feature)
+        )
+    )    
 
-    return visual_data
+    return banded_data
 
-def plot_glm_vs_gbm(visual_data: pl.DataFrame, factor: str, target: str, exposure: str = None) -> go.Figure:
-    if exposure is None:
-        exposure = 'count'
+
+def aggregate_frequency_df(
+        df, 
+        feature, 
+        continous_feature_config, 
+        claim_count = 'ClaimCount', 
+        exposure = 'Exposure', 
+        prediction = 'ClaimCountPrediction'
+    ):
+
+    """
+    Aggregate frequency data by the specified feature.
+
+    If continous, bands feature using provided configuration.
+
+    Args:
+        df (pl.DataFrame): The input DataFrame.
+        feature (str): The name of the feature to aggregate by.
+        continous_feature_config (dict): Configuration for continuous features.
+        claim_count (str): The name of the claim count column.
+        exposure (str): The name of the exposure column.
+        prediction (str): The name of the prediction column.
+
+    Returns:
+        pl.DataFrame: The aggregated frequency DataFrame.
+    """
+
+    if feature in continous_feature_config:
+        lower_bound = continous_feature_config.get(feature).get('min')
+        upper_bound = continous_feature_config.get(feature).get('max')
+        step_size = continous_feature_config.get(feature).get('step')
+
+        df = band_continous(df, feature, lower_bound, upper_bound, step_size)
+
+    aggregated_df = (
+        df
+        .group_by(feature)
+            .agg(
+                pl.col(exposure).sum(), 
+                pl.col(claim_count).sum(), 
+                pl.col(prediction).sum()
+            )
+        .with_columns(Frequency = pl.col(claim_count) / pl.col(exposure))
+        .with_columns(FrequencyPrediction = pl.col(prediction) / pl.col(exposure))
+        .sort(feature)
+    )
+
+    return aggregated_df
+
+
+def create_frequency_table(
+        df, 
+        feature, 
+        frequency = 'Frequency', 
+        exposure = 'Exposure', 
+        prediction = 'FrequencyPrediction', 
+        experiment = 'Not Logged'
+    ):
+
+    """
+    Creates a frequency table for the specified feature.
+
+    Args:
+        df (pl.DataFrame): The input DataFrame.
+        feature (str): The name of the feature to create a frequency table for.
+        frequency (str): The name of the frequency column.
+        exposure (str): The name of the exposure column.
+        prediction (str): The name of the prediction column.
+        experiment (str): The name of the model experiment.
+
+    Returns:
+        pl.DataFrame: The created frequency table.
+    """
+    return (
+        GT(df)
+        .tab_header(
+            title=f'Frequency - Actual vs Predicted - {feature}',
+        )
+        .tab_stub(rowname_col=feature)
+        .tab_source_note(source_note=f'Trained on experiment: {experiment}')
+        .tab_stubhead(label=feature)
+        .fmt_integer(columns=exposure)
+        .fmt_percent(columns=[frequency, prediction], decimals=1)
+        .data_color(
+            columns=[frequency, prediction],
+            palette=["#63BE7B", "#FFEB84", "#F8696B"]
+        )
+        .cols_move(columns=prediction, after=frequency)
+    )
+
+def save_table_to_html(table, path):
+
+    html_str = table.as_raw_html()
+    with open(path, 'w', encoding='utf-8') as f:
+        f.write(html_str)
+
+def plot_aggregated_data(visual_data: pl.DataFrame, feature: str, target: str, prediction: str, exposure: str, write_html: bool = False) -> None:
 
     fig = go.Figure()
 
     # Bar: Exposure
     fig.add_trace(go.Bar(
-        x=visual_data[factor],
+        x=visual_data[feature],
         y=visual_data[exposure],
         name=exposure,
         marker_color='lightskyblue',
@@ -75,7 +150,7 @@ def plot_glm_vs_gbm(visual_data: pl.DataFrame, factor: str, target: str, exposur
 
     # Line: ClaimCount
     fig.add_trace(go.Scatter(
-        x=visual_data[factor],
+        x=visual_data[feature],
         y=visual_data[target],
         name=target,
         mode='lines+markers',
@@ -85,35 +160,25 @@ def plot_glm_vs_gbm(visual_data: pl.DataFrame, factor: str, target: str, exposur
 
     # Line: gbm_predictions
     fig.add_trace(go.Scatter(
-        x=visual_data[factor],
-        y=visual_data["gbm_predictions"],
-        name="GBM Predictions",
+        x=visual_data[feature],
+        y=visual_data[prediction],
+        name="Frequency Predictions",
         mode='lines+markers',
         line=dict(color='green', dash='dot'),
         yaxis='y2'
     ))
 
-    # Line: glm_predictions
-    fig.add_trace(go.Scatter(
-        x=visual_data[factor],
-        y=visual_data["glm_predictions"],
-        name="GLM Predictions",
-        mode='lines+markers',
-        line=dict(color='orange', dash='dash'),
-        yaxis='y2'
-    ))
-
     # Layout with dual y-axes
     fig.update_layout(
-        title=f"Exposure vs Claims and Predictions by {factor}",
-        xaxis=dict(title=factor),
+        title=f"Frequency - Actuals vs Prediction - {feature}",
+        xaxis=dict(title=feature),
         yaxis=dict(
             title=exposure,
             side="left",
             showgrid=False
         ),
         yaxis2=dict(
-            title="severity",
+            title="Frequency",
             overlaying="y",
             side="right"
         ),
@@ -121,69 +186,7 @@ def plot_glm_vs_gbm(visual_data: pl.DataFrame, factor: str, target: str, exposur
         legend=dict(x=0.01, y=0.99)
     )
 
-    # Layout with dual y-axes
-    fig.update_layout(
-        title=f"Exposure vs Claims and Predictions by {factor}",
-        xaxis=dict(title=factor),
-        yaxis=dict(
-            title=exposure,
-            side="left",
-            showgrid=False
-        ),
-        yaxis2=dict(
-            title="severity",
-            overlaying="y",
-            side="right"
-        ),
-        barmode='group',
-        legend=dict(x=0.01, y=0.99),
-        width=1000,
-        height=600 
-    )
-    
-    return fig  
+    if write_html:
+        fig.write_html(f"./frequency-chart-{feature}.html")
 
-def create_html_output(filename, data, continous_features, continous_factor_visuals, target, features, extra_columns = None, exposure = None):
-    # Create HTML file with all plots
-    features_to_plot = ['gbm_glm_ratio'] + features
-    print(f"Processing {len(features_to_plot)} features...")
-
-    # Create list to store all figures
-    figures = []
-
-    for i, feature in enumerate(features_to_plot):
-        print(f"Processing feature {i+1}/{len(features_to_plot)}: {feature}")
-        
-        try:
-            aggregated_table = create_visual_data(data=data, 
-                                                factor=feature, 
-                                                continous_features=continous_features, 
-                                                continous_factor_visuals=continous_factor_visuals, 
-                                                target=target)
-            
-            fig = plot_glm_vs_gbm(visual_data=aggregated_table, 
-                                factor=feature, 
-                                target=target)
-            
-            figures.append(fig)
-            print(f"Successfully created plot for {feature}")
-            
-        except Exception as e:
-            print(f"Error processing feature {feature}: {str(e)}")
-            continue
-
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-
-    # Save all plots to a single HTML file
-    if figures:
-        with open(f'outputs/{filename}_{timestamp}.html', 'w') as f:
-            for fig in figures:
-                f.write(fig.to_html(full_html=False, include_plotlyjs='cdn'))
-        print("HTML file created successfully!.")
-    else:
-        print("No plots were generated successfully!")
-
-
-
-
-
+    return fig

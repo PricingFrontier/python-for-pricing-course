@@ -11,5 +11,3 @@ Automate the setup and management of your infrastructure using code for consiste
 Use containerisation to package your pricing applications and dependencies for easy deployment.
 
 Implement Continuous Integration and Continuous Delivery pipelines to automate testing and deployment.
-
-Harness Databricks for collaborative, scalable data engineering and model deployment in pricing.

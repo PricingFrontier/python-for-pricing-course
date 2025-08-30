@@ -88,3 +88,19 @@ def create_modelling_data(data, features, group_field, group, target, exposure =
         return filtered_data, train_X, train_y, train_exposure
 
     return filtered_data, train_X, train_y
+
+def gbm_predictions(model, X, data, exposure=None):
+
+    gbm_predictions = model.predict(X)
+
+    if exposure is not None:
+        gbm_predictions = gbm_predictions * exposure
+
+    data = (
+        data
+        .with_columns(
+            pl.Series('gbm_predictions', gbm_predictions)
+        )
+    )
+
+    return data

@@ -1,29 +1,3 @@
-# 4.4. Dashboards / Apps
-
-So far, we’ve seen how to turn aggregated data into tables and charts. That already gives you powerful, reproducible outputs.
-But in practice, pricing analysts often need to share multiple views of the same results, sometimes slicing by different features or drilling into different segments. Doing this one chart or table at a time is fine, but a more scalable approach is to wrap everything into an interactive dashboard.
-
-This is where Plotly Dash comes in.
-
-Dash is a Python framework for building web apps, powered by the same Plotly charts we’ve just created. The idea is simple:
-
-You write Python code, not JavaScript.
-
-You can combine multiple charts, tables, and filters into a single interface.
-
-Stakeholders can then open the app in their browser and interact with it — changing drop-downs, selecting features, zooming into plots — without ever touching your Python code.
-
-In insurance pricing, dashboards are particularly useful for:
-
-Comparing model performance across different features.
-
-Allowing underwriters or managers to explore results without needing to run Python.
-
-Replacing ad-hoc Excel “data dumps” with a single interactive view.
-
-## Plotly Dash
-
-```python
 import json
 import polars as pl
 from dash import Dash, dcc, html, Input, Output
@@ -81,11 +55,3 @@ def update_chart(feature):
 
 if __name__ == "__main__":
     app.run(debug=True)
-```
-
-```pwsh-session
-PS> python app.py
-```
-
-
-![Dash App](./dash-app.png)
