@@ -1,5 +1,7 @@
 # 0.0. Overview
 
-Great pricing analysis isn’t just about the numbers—it’s about how the work is done. This chapter introduces the core principles that make Python projects effective in real-world pricing teams: transparency, automation, modularity, and collaboration. By embedding these ideas, you can improve efficiency, auditability, and impact.
+This chapter introduces the key motivations for using Python in pricing, and the advantages it offers over traditional approaches.  
 
-You’ll see how Python makes every step of your pricing logic visible and reproducible, so results can be trusted, explained, and rerun at any time. We’ll explore how automation reduces repetitive work, how modular code makes solutions easier to maintain and extend, and how technical practices enable teams to collaborate smoothly. Finally, we’ll show how to bridge the gap with non-technical stakeholders, ensuring Python outputs are clear, accessible, and actionable for decision-making.
+Python is more than just an alternative tool for performing familiar tasks-it enables a fundamentally different approach to data analytics. By leveraging Python, pricing teams can automate repetitive processes, work with larger datasets, improve transparency, and build more robust, reproducible models.  
+
+Throughout this chapter, we’ll explore how Python can streamline workflows, support innovation in pricing strategy, and provide capabilities that are difficult or impossible with conventional tools like Excel.
