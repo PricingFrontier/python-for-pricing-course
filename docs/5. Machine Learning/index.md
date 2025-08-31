@@ -1,13 +1,7 @@
 # 5.0. Machine Learning
 
-Machine learning is no longer a luxury in pricing-it’s a competitive advantage. This chapter introduces modelling pipelines, training and validating models, and applying them to real-world pricing problems. You’ll also learn the essentials of deploying models and monitoring their performance over time.
+Machine learning is commonplace in pricing, yet many teams still rely on duplicated pipelines, scattered model files, and deployments without fully understanding performance in a live environment.
 
-Build efficient, repeatable pipelines to prepare data, train models, and generate predictions.
+This chapter shows how to build efficient, repeatable pipelines to prepare data, train models, and manage them in a central model registry.
 
-Learn best practices for training models and validating their performance to ensure reliability.
-
-Manage model versions and metadata to track development and facilitate collaboration.
-
-Explore how to deploy models into production environments for real-world pricing decisions.
-
-Set up monitoring to detect model drift, performance degradation, and maintain model accuracy over time.
+You’ll also learn how to set up monitoring to track model drift, detect performance degradation, and maintain accuracy over time.

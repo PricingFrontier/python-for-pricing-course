@@ -1,3 +1,7 @@
 # 3.0. Data Manipulation
 
-This chapter lays the groundwork for pricing analytics by introducing Python’s core data concepts and tools. You’ll learn the basics of syntax and notebooks, explore the key libraries used in pricing, and master Polars DataFrames for efficient handling of large datasets. Along the way, we’ll cover techniques for abstraction and workflow design to make your code cleaner, faster, and easier to reuse.
+This chapter lays the groundwork for pricing analytics by introducing Python’s core data concepts and tools. 
+
+Covering the basics of syntax and notebooks, explore the key libraries used in pricing, and Polars DataFrames for efficient handling of large datasets. 
+
+Along the way, we’ll cover techniques for abstraction and workflow design to make your code cleaner, faster, and easier to reuse.

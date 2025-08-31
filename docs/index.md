@@ -6,7 +6,7 @@
     Learn how and why to adopt python in your pricing workflows
 </center>
 
-Welcome to our comprehensive [Python for Pricing Course](https://python-for-pricing.co.uk/), built specifically for insurance pricing professionals.
+Welcome to the comprehensive [Python for Pricing Course](https://python-for-pricing.co.uk/), built specifically for insurance pricing professionals.
 
 Whether you're leading a pricing team, new to coding, or looking to modernise your workflow, this course shows you how Python can transform the way you work; from one-off analyses in Excel to reproducible, scalable, and automated systems.
 
@@ -30,8 +30,9 @@ I've written this course to share my experience of building end-to-end pricing s
 
 ## You're joining a community
 
-You're not learning in isolation - you're joining community of pricing analysts modernising their skillsets. Whether you're just starting out or leading change in your team, this course is here to support your next step.
+Python is quickly becoming popular across the insurance industry. 
 
+You're not learning in isolation - you're joining community of pricing analysts modernising their skillsets. Whether you're just starting out or leading change in your team, this course is here to support your next step.
 
 ## [Chapter 0: Overview](./0. Overview/index.md)
 
@@ -59,6 +60,6 @@ Dive into predictive modelling for pricing. Learn how to build, validate, and de
 
 ## [Chapter 6: Production](./6. Production/index.md)
 
-Take your work from notebooks to production. This section covers key engineering concepts like Docker, CI/CD, cloud deployment, and working with platforms like Databricks - enabling your models and analytics to scale.
+Take your work from notebooks to production. This section covers key engineering concepts like Docker, CI/CD, cloud deployment - enabling your models and analytics to scale.
 
 
