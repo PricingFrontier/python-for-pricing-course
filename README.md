@@ -1,7 +1,7 @@
 # Python for Pricing
 
 <center>
-    <img src="./assets/banner.png" alt="Python for Pricing Course Banner" style="height: 300px" />
+    <img src="./docs/assets/banner.png" alt="Python for Pricing Course Banner" style="height: 300px" />
     <br />
     Learn how and why to adopt python in your pricing workflows
 </center>
@@ -15,7 +15,7 @@ You'll learn why Python is the right choice for pricing, how to get set up with 
 ## Author
 
 <p>
-  <img src="./assets/my_face.png" alt="My face" style="height:250px; float:left; margin-right:15px;" />
+  <img src="./docs/assets/my_face.png" alt="My face" style="height:250px; float:left; margin-right:15px;" />
 </p>
 
 My name is Ralph and I've been using Python for the majority of my career in Pricing.
@@ -24,9 +24,9 @@ To me, it's not just a different tool to use, it's a different approach to analy
 
 I've written this course to share my experience of building end-to-end pricing systems with the wider industry and encourage analysts to explore the world of modern analytics.
 
-**Connect with me on LinkedIn**: [linkedin.com/in/ralph-clayton/](https://www.linkedin.com/in/ralph-clayton/){target="_blank"} 
+**Connect with me on LinkedIn**: [linkedin.com/in/ralph-clayton/](https://www.linkedin.com/in/ralph-clayton/)
 
-**Read more about Pricing Frontier LTD**: [pricing-frontier.co.uk](https://pricing-frontier.co.uk){target="_blank"}
+**Read more about Pricing Frontier LTD**: [pricing-frontier.co.uk](https://pricing-frontier.co.uk)
 
 ## You're joining a community
 
