@@ -20,7 +20,7 @@ You'll learn why Python is the right choice for pricing, how to get set up with 
 
 My name is Ralph and I've been using Python for the majority of my career in Pricing.
 
-To me it's not just a different tool to use, it's a different approach to analysis, and provides a variety of ways to step up the efficiency and quality of your pricing work.
+To me, it's not just a different tool to use, it's a different approach to analysis, and provides a variety of ways to step up the efficiency and quality of your pricing work.
 
 I've written this course to share my experience of building end-to-end pricing systems with the wider industry and encourage analysts to explore the world of modern analytics.
 
