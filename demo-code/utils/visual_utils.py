@@ -7,7 +7,7 @@ from plotly.subplots import make_subplots
 import numpy as np
 from great_tables import GT, md, html
 
-def band_continous(
+def band_continuous(
         df, 
         feature, 
         lower_bound, 
@@ -43,7 +43,7 @@ def band_continous(
 def aggregate_frequency_df(
         df, 
         feature, 
-        continous_feature_config, 
+        continuous_feature_config, 
         claim_count = 'ClaimCount', 
         exposure = 'Exposure', 
         prediction = 'ClaimCountPrediction'
@@ -52,12 +52,12 @@ def aggregate_frequency_df(
     """
     Aggregate frequency data by the specified feature.
 
-    If continous, bands feature using provided configuration.
+    If continuous, bands feature using provided configuration.
 
     Args:
         df (pl.DataFrame): The input DataFrame.
         feature (str): The name of the feature to aggregate by.
-        continous_feature_config (dict): Configuration for continuous features.
+        continuous_feature_config (dict): Configuration for continuous features.
         claim_count (str): The name of the claim count column.
         exposure (str): The name of the exposure column.
         prediction (str): The name of the prediction column.
@@ -66,12 +66,12 @@ def aggregate_frequency_df(
         pl.DataFrame: The aggregated frequency DataFrame.
     """
 
-    if feature in continous_feature_config:
-        lower_bound = continous_feature_config.get(feature).get('min')
-        upper_bound = continous_feature_config.get(feature).get('max')
-        step_size = continous_feature_config.get(feature).get('step')
+    if feature in continuous_feature_config:
+        lower_bound = continuous_feature_config.get(feature).get('min')
+        upper_bound = continuous_feature_config.get(feature).get('max')
+        step_size = continuous_feature_config.get(feature).get('step')
 
-        df = band_continous(df, feature, lower_bound, upper_bound, step_size)
+        df = band_continuous(df, feature, lower_bound, upper_bound, step_size)
 
     aggregated_df = (
         df

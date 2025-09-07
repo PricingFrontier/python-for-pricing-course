@@ -9,8 +9,8 @@ holdout = pl.read_parquet('./demo-code/processed-data/holdout_frequency_predicti
 with open('./demo-code/config/frequency_config.json', 'r') as f:
     frequency_config = json.load(f)
 
-with open('./demo-code/config/continous_feature_visuals.json', 'r') as f:
-    continous_feature_config = json.load(f)
+with open('./demo-code/config/continuous_feature_visuals.json', 'r') as f:
+    continuous_feature_config = json.load(f)
 
 features = frequency_config['features']
 
@@ -42,7 +42,7 @@ def update_chart(feature):
     agg_df = aggregate_frequency_df(
         holdout,
         feature=feature,
-        continous_feature_config=continous_feature_config
+        continuous_feature_config=continuous_feature_config
     )
     fig = plot_aggregated_data(
         agg_df,

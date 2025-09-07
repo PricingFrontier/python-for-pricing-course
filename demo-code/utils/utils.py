@@ -19,11 +19,11 @@ def define_categorical_columns(data: pl.DataFrame, features: List[str]) -> List[
     
     return categorical_features
 
-def define_continous_columns(features: List[str], categorical_features: List[str]) -> List[str]:
+def define_continuous_columns(features: List[str], categorical_features: List[str]) -> List[str]:
     """
     Define continuous columns based on the provided features.
     """
 
-    continous_features = [feature for feature in features if feature not in categorical_features]
+    continuous_features = [feature for feature in features if feature not in categorical_features]
     
-    return continous_features
+    return continuous_features
