@@ -32,7 +32,7 @@ I've written this course to share my experience of building end-to-end pricing s
 
 Python is quickly becoming popular across the insurance industry. 
 
-You're not learning in isolation - you're joining community of pricing analysts modernising their skillsets. Whether you're just starting out or leading change in your team, this course is here to support your next step.
+You're not learning in isolation - you're joining a community of pricing analysts modernising their skillsets. Whether you're just starting out or leading change in your team, this course is here to support your next step.
 
 ## [Chapter 0: Overview](./0. Overview/index.md)
 
