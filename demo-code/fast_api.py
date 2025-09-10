@@ -1,35 +1,34 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-import mlflow.pyfunc
+import requests
+import json
 import numpy as np
-from dotenv import load_dotenv
-import os
 
-# Load variables from .env into os.environ
-load_dotenv()
+# ----- Define request schema -----
+class DataFrameSplit(BaseModel):
+    dataframe_split: dict
+    model_version_uri: str
+    databricks_token: str
 
-# Access them like normal environment variables
-DATABRICKS_HOST = os.getenv("DATABRICKS_HOST")
-DATABRICKS_TOKEN = os.getenv("DATABRICKS_TOKEN")
-
-os.environ["DATABRICKS_HOST"] = DATABRICKS_HOST
-os.environ["DATABRICKS_TOKEN"] = DATABRICKS_TOKEN
-os.environ["MLFLOW_ENABLE_UC_FUNCTIONS"] = "true"
-
-model = mlflow.pyfunc.load_model("models:/workspace.default.models.frequency_gbm@champion")
-FEATURES = [col.name for col in model.metadata.get_input_schema().inputs]
-
-# Dynamically build Pydantic model
-InputSchema = type(
-    "InputSchema",
-    (BaseModel,),
-    {f: (float, ...) for f in FEATURES}  # ... means required
-)
-
-app = FastAPI()
+# ----- Init FastAPI -----
+app = FastAPI(title="MLflow Prediction API")
 
 @app.post("/predict")
-def predict(data: InputSchema):
-    x = np.array([[getattr(data, f) for f in FEATURES]], dtype=np.float32)
-    pred = model.predict(x)
-    return {"prediction": pred.tolist()}
+def predict(payload: DataFrameSplit):
+
+    # Call the deployed MLflow model
+    response = requests.post(
+        payload.model_version_uri,
+        headers={"Content-Type": "application/json"},
+        auth=("token", payload.databricks_token),
+        data=json.dumps({"dataframe_split": payload.dataframe_split})
+    )
+
+    frequency_predictions = response.json().get("predictions")
+    frequency_predictions = np.array(frequency_predictions)
+
+    severity_prediction = 500
+    burn_costs = frequency_predictions * severity_prediction
+    premiums = burn_costs * 1.2
+
+    return {"premium": premiums.tolist()}
