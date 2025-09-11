@@ -34,6 +34,14 @@ Python is quickly becoming popular across the insurance industry.
 
 You're not learning in isolation - you're joining a community of pricing analysts modernising their skillsets. Whether you're just starting out or leading change in your team, this course is here to support your next step.
 
+## The best way to learn how to code, is to code
+
+This course has code snippets throughout from workflow contained in this repository. However this course is not a walkthrough tutorial, as this is often not the best way to learn to code.
+
+Instead choose a project, whether personal or at work, and look to apply the principles and ideas described in this course. 
+
+All the tools referenced are free to use, however some do have pricing for commerical use.
+
 ## [Chapter 0: Overview](./0. Overview/index.md)
 
 Understand why Python is a powerful tool for pricing teams. This chapter introduces the core motivations for adopting Python - from automation and reproducibility to innovation and collaboration - and outlines how this course is structured to support different experience levels.
