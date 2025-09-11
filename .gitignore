@@ -211,5 +211,6 @@ __marimo__/
 mlruns/
 mlartifacts/
 
+.terraform/
 
 notes.py
