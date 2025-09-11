@@ -212,5 +212,8 @@ mlruns/
 mlartifacts/
 
 .terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
 
 notes.py

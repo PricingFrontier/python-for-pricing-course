@@ -1,6 +1,5 @@
 provider "azurerm" {
   features {}
-
   subscription_id = "1bfa4a42-039e-4cb4-aaa2-3721db1a4c51"
   tenant_id       = "9e2012b9-0af5-4f8b-985c-43cc6fb1afad"
 }
@@ -25,47 +24,36 @@ resource "azurerm_container_registry" "acr" {
 }
 
 # ------------------------
-# Storage Account (required for Function App)
-# ------------------------
-resource "azurerm_storage_account" "storage" {
-  name                     = "pricedemofastapistorage"
-  resource_group_name      = azurerm_resource_group.rg.name
-  location                 = azurerm_resource_group.rg.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-}
-
-# ------------------------
-# App Service Plan (for Function App)
+# App Service Plan (Linux)
 # ------------------------
 resource "azurerm_service_plan" "plan" {
   name                = "pricingdemo-fastapi-plan"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   os_type             = "Linux"
-  sku_name            = "Y1"       # Dynamic consumption plan
+  sku_name            = "B1"
 }
 
 # ------------------------
-# Function App (Linux, Docker)
+# Linux Web App (Docker)
 # ------------------------
-resource "azurerm_function_app" "func" {
-  name                       = "pricingdemo-fastapi-function"
-  location                   = azurerm_resource_group.rg.location
-  resource_group_name        = azurerm_resource_group.rg.name
-  app_service_plan_id        = azurerm_service_plan.plan.id
-  storage_account_name       = azurerm_storage_account.storage.name
-  storage_account_access_key = azurerm_storage_account.storage.primary_access_key
-  version                    = "~4"
-  os_type                    = "linux"
+resource "azurerm_linux_web_app" "app" {
+  name                = "pricingdemo-fastapi-webapp"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  service_plan_id     = azurerm_service_plan.plan.id
 
   site_config {
-    linux_fx_version = "DOCKER|pricingdemofastapiregistry.azurecr.io/fastapi-mlflow:latest"
+    application_stack {
+      docker_image_name      = "fastapi-mlflow:latest"
+      docker_registry_url    = "https://${azurerm_container_registry.acr.login_server}"
+      docker_registry_username = azurerm_container_registry.acr.admin_username
+      docker_registry_password = azurerm_container_registry.acr.admin_password
+    }
   }
 
   app_settings = {
-    FUNCTIONS_WORKER_RUNTIME = "python"
-    WEBSITE_RUN_FROM_PACKAGE  = "1"
+    WEBSITES_PORT = "80"
   }
 }
 
@@ -76,6 +64,6 @@ output "acr_login_server" {
   value = azurerm_container_registry.acr.login_server
 }
 
-output "function_app_url" {
-  value = azurerm_function_app.func.default_hostname
+output "web_app_url" {
+  value = azurerm_linux_web_app.app.default_hostname
 }
