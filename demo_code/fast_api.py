@@ -11,10 +11,10 @@ class DataFrameSplit(BaseModel):
     databricks_token: str
 
 # ----- Init FastAPI -----
-app = FastAPI(title="MLflow Prediction API")
+app = FastAPI(title="Calculate Quote Premium")
 
-@app.post("/predict")
-def predict(payload: DataFrameSplit):
+@app.post("/calculate_premium")
+def calculate_premium(payload: DataFrameSplit):
     """
     Call the deployed MLflow model and compute premiums.
     """

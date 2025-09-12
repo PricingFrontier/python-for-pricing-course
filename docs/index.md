@@ -34,6 +34,8 @@ Python is quickly becoming popular across the insurance industry.
 
 You're not learning in isolation - you're joining a community of pricing analysts modernising their skillsets. Whether you're just starting out or leading change in your team, this course is here to support your next step.
 
+Join the [Python for Pricing](https://www.linkedin.com/groups/14916049/) LinkedIn group to discuss Python in the insurance industry.
+
 ## The best way to learn how to code, is to code
 
 This course has code snippets throughout from workflow contained in this repository. However this course is not a walkthrough tutorial, as this is often not the best way to learn to code.
