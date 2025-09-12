@@ -76,7 +76,7 @@ resource "azurerm_container_app" "app" {
   template {
     container {
       name   = "fastapi"
-      image  = "${azurerm_container_registry.acr.login_server}/fastapi-mlflow:latest"
+      image  = "${azurerm_container_registry.acr.login_server}/pricing-app:latest"
       cpu    = 0.5
       memory = "1.0Gi"
     }

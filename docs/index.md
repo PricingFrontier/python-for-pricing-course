@@ -42,7 +42,7 @@ This course has code snippets throughout from workflow contained in this reposit
 
 Instead choose a project, whether personal or at work, and look to apply the principles and ideas described in this course. 
 
-All the tools referenced are free to use, however some do have pricing for commerical use.
+All the tools referenced are free to use, or have free tiers, however some do have pricing for commerical use.
 
 ## [Chapter 0: Overview](./0. Overview/index.md)
 
