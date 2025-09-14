@@ -46,7 +46,7 @@ All the tools referenced are free to use, or have free tiers, however some do ha
 
 ## [Chapter 0: Overview](./0. Overview/index.md)
 
-Understand why Python is a powerful tool for pricing teams. This chapter introduces the core motivations for adopting Python - from automation and reproducibility to innovation and collaboration - and outlines how this course is structured to support different experience levels.
+Understand why Python is a powerful tool for pricing teams. This chapter introduces the core motivations for adopting Python - from automation and reproducibility to innovation and collaboration.
 
 ## [Chapter 1: Principles](./1. Principles/index.md)
 
