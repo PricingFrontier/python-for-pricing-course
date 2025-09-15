@@ -38,7 +38,7 @@ Join the [Python for Pricing](https://www.linkedin.com/groups/14916049/) LinkedI
 
 ## The best way to learn how to code, is to code
 
-This course has code snippets throughout from workflow contained in this repository. However this course is not a walkthrough tutorial, as this is often not the best way to learn to code.
+This course has code snippets throughout from a workflow contained in this repository. However this course is not a walkthrough tutorial, as this is often not the best way to learn to code.
 
 Instead choose a project, whether personal or at work, and look to apply the principles and ideas described in this course. 
 
